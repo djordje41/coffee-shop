@@ -1,38 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace BillingSystem
+﻿namespace BillingSystem
 {
     public partial class Users : Form
     {
-        int aux;
-        string[] userarr = new string[5];
-        string[] passarr = new string[5];
-        public Users(string[] userarr, string[] passarr, int aux)
+        private readonly DatabaseConnector connector = new();
+
+        public Users()
         {
             InitializeComponent();
-
-            this.userarr = userarr;
-            this.passarr = passarr;
-            this.aux = aux;
         }
+
         private void Users_Load(object sender, EventArgs e)
         {
-            for (int i = 0; i < aux; i++)
+            // Fetch users from the database
+            List<User> users = this.connector.User_List();
+
+            // Clear existing rows
+            dgvAdmin.Rows.Clear();
+
+            // Loop through the users and add them to the DataGridView
+            for (int i = 0; i < users.Count; i++)
             {
                 dgvAdmin.Rows.Add();
-                dgvAdmin.Rows[i].Cells[0].Value = i;
-                dgvAdmin.Rows[i].Cells[1].Value = userarr[i];
-                dgvAdmin.Rows[i].Cells[2].Value = passarr[i];
+                dgvAdmin.Rows[i].Cells[0].Value = users[i].Id; // Assuming the first column is for user ID
+                dgvAdmin.Rows[i].Cells[1].Value = users[i].Username; // Assuming the second column is for username
+                dgvAdmin.Rows[i].Cells[2].Value = users[i].Password; // Assuming the third column is for password
             }
         }
+
         private void dgvAdmin_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 

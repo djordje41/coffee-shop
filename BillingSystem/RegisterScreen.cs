@@ -1,30 +1,59 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace BillingSystem
+﻿namespace BillingSystem
 {
     public partial class RegisterScreen : Form
     {
-        int aux;
-        string useradmin;
-        string[] userarr = new string[5];
-        string[] passarr = new string[5];
+        private readonly DatabaseConnector databaseConnector = new();
 
-        public RegisterScreen(string[] userarr, string[] passarr, int aux2, string useradmin)
+        public RegisterScreen()
         {
-            this.aux = aux2;
-            this.useradmin = useradmin;
-            this.userarr = userarr;
-            this.passarr = passarr;
-
             InitializeComponent();
+        }
+
+        private void CancelRegisterButton_Click(object sender, EventArgs e)
+        {
+            LoginScreen loginscreen = new();
+            loginscreen.Show();
+            this.Hide();
+        }
+
+        private void RegisterButton_Click(object sender, EventArgs e)
+        {
+            string username = UserBox.Text;
+            string password = PasswordBox.Text;
+
+            if (username.Length < 3)
+            {
+                MessageBox.Show("The username is too short. Try another.");
+            }
+            else if (password.Length < 3)
+            {
+                MessageBox.Show("The password is too short. Try another.");
+            }
+            else if (this.databaseConnector.User_Exists(username) || username == AdminCredentials.Username)
+            {
+                MessageBox.Show("That username is taken. Try another.");
+            }
+            else if (username.Length >= 3 && password.Length >= 3)
+            {
+                bool userCreated = this.databaseConnector.User_Create(username, password);
+
+                if (userCreated)
+                {
+                    MessageBox.Show("User registered successfully.");
+
+                    LoginScreen loginscreen = new();
+                    loginscreen.Show();
+                    this.Close();
+                } 
+                else
+                {
+                    MessageBox.Show("Failed to register the user.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Something went wrong. Try again.");
+            }
         }
 
         private void RegisterScreen_Load(object sender, EventArgs e)
@@ -52,54 +81,5 @@ namespace BillingSystem
 
         }
 
-
-        /*============================= Code ============================*/
-
-        private void CancelRegisterButton_Click(object sender, EventArgs e)
-        {
-
-            LoginScreen loginscreen = new LoginScreen(this.userarr, this.passarr, this.aux);
-            loginscreen.Show();
-            this.Hide();
-        }
-
-        private void RegisterButton_Click(object sender, EventArgs e)
-        {
-
-
-            if (UserBox.Text.Length < 3)
-            {
-                MessageBox.Show("The username is too short. Try another.");
-            }
-            else if (PasswordBox.Text.Length < 3)
-            {
-                MessageBox.Show("The password is too short. Try another.");
-            }
-            else if (this.userarr.Contains(UserBox.Text) || UserBox.Text == useradmin)
-            {
-                MessageBox.Show("That username is taken. Try another.");
-            }
-            else if (this.aux == 5)
-            {
-                MessageBox.Show("The maximum number of registered users has been reached. Sorry.");
-            }
-            else if (UserBox.Text.Length >= 3 && PasswordBox.Text.Length >= 3 && this.aux <= 5)
-            {
-                this.userarr[this.aux] = UserBox.Text;
-                this.passarr[this.aux] = PasswordBox.Text;
-
-                aux += 1;
-
-                MessageBox.Show("User registered successfully.");
-
-                LoginScreen loginscreen = new LoginScreen(this.userarr, this.passarr, this.aux);
-                loginscreen.Show();
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Something went wrong. Try again.");
-            }
-        }
     }
 }

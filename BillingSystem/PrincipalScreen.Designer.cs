@@ -1,4 +1,7 @@
-﻿namespace BillingSystem
+﻿using BillingSystem.Properties;
+using System.Windows.Forms;
+
+namespace BillingSystem
 {
     partial class PrincipalScreen
     {
@@ -6,6 +9,7 @@
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
+        private readonly DatabaseConnector db = new();
 
         /// <summary>
         /// Clean up any resources being used.
@@ -50,43 +54,7 @@
             this.toolStripSaveButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripPrintButton = new System.Windows.Forms.ToolStripButton();
             this.ReceiptTextBox = new System.Windows.Forms.RichTextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.CheckBoxChocolateBread = new System.Windows.Forms.CheckBox();
-            this.CheckBoxWater = new System.Windows.Forms.CheckBox();
-            this.CheckBoxCroissant = new System.Windows.Forms.CheckBox();
-            this.CheckBoxPastry = new System.Windows.Forms.CheckBox();
-            this.CheckBoxOrangeJuice = new System.Windows.Forms.CheckBox();
-            this.CheckBoxMiloCake = new System.Windows.Forms.CheckBox();
-            this.CheckBoxCheeseStick = new System.Windows.Forms.CheckBox();
-            this.CheckBoxCoffee = new System.Windows.Forms.CheckBox();
-            this.CheckBoxChocolateCake = new System.Windows.Forms.CheckBox();
-            this.ChocolateCakeCounter = new System.Windows.Forms.NumericUpDown();
-            this.CoffeeCounter = new System.Windows.Forms.NumericUpDown();
-            this.CheeseStickCounter = new System.Windows.Forms.NumericUpDown();
-            this.PastryCounter = new System.Windows.Forms.NumericUpDown();
-            this.OrangeJuiceCounter = new System.Windows.Forms.NumericUpDown();
-            this.MiloCakeCounter = new System.Windows.Forms.NumericUpDown();
-            this.CroissantCounter = new System.Windows.Forms.NumericUpDown();
-            this.WaterCounter = new System.Windows.Forms.NumericUpDown();
-            this.ChocolateBreadCounter = new System.Windows.Forms.NumericUpDown();
             this.LabelRestaurantName = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.UsersControl = new System.Windows.Forms.ToolStripMenuItem();
             this.UsersControlView = new System.Windows.Forms.ToolStripMenuItem();
             this.RegisterControls = new System.Windows.Forms.ToolStripMenuItem();
@@ -103,24 +71,6 @@
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.ToolStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ChocolateCakeCounter)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CoffeeCounter)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CheeseStickCounter)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PastryCounter)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.OrangeJuiceCounter)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MiloCakeCounter)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CroissantCounter)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.WaterCounter)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ChocolateBreadCounter)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -417,412 +367,6 @@
             this.ReceiptTextBox.Text = "";
             this.ReceiptTextBox.TextChanged += new System.EventHandler(this.ReceiptTextBox_TextChanged);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(47, 80);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(130, 130);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(47, 227);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(130, 130);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(47, 375);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(130, 130);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 6;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(279, 80);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(130, 130);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 7;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(279, 227);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(130, 130);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 8;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(279, 375);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(130, 130);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 9;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(511, 80);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(130, 130);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 10;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(511, 227);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(130, 130);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 11;
-            this.pictureBox8.TabStop = false;
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(511, 375);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(130, 130);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox9.TabIndex = 12;
-            this.pictureBox9.TabStop = false;
-            // 
-            // CheckBoxChocolateBread
-            // 
-            this.CheckBoxChocolateBread.AutoSize = true;
-            this.CheckBoxChocolateBread.Location = new System.Drawing.Point(490, 79);
-            this.CheckBoxChocolateBread.Name = "CheckBoxChocolateBread";
-            this.CheckBoxChocolateBread.Size = new System.Drawing.Size(15, 14);
-            this.CheckBoxChocolateBread.TabIndex = 13;
-            this.CheckBoxChocolateBread.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.CheckBoxChocolateBread.UseVisualStyleBackColor = true;
-            this.CheckBoxChocolateBread.CheckedChanged += new System.EventHandler(this.CheckBoxChocolateBread_CheckedChanged);
-            // 
-            // CheckBoxWater
-            // 
-            this.CheckBoxWater.AutoSize = true;
-            this.CheckBoxWater.Location = new System.Drawing.Point(490, 227);
-            this.CheckBoxWater.Name = "CheckBoxWater";
-            this.CheckBoxWater.Size = new System.Drawing.Size(15, 14);
-            this.CheckBoxWater.TabIndex = 14;
-            this.CheckBoxWater.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.CheckBoxWater.UseVisualStyleBackColor = true;
-            this.CheckBoxWater.CheckedChanged += new System.EventHandler(this.CheckBoxWater_CheckedChanged);
-            // 
-            // CheckBoxCroissant
-            // 
-            this.CheckBoxCroissant.AutoSize = true;
-            this.CheckBoxCroissant.Location = new System.Drawing.Point(490, 375);
-            this.CheckBoxCroissant.Name = "CheckBoxCroissant";
-            this.CheckBoxCroissant.Size = new System.Drawing.Size(15, 14);
-            this.CheckBoxCroissant.TabIndex = 15;
-            this.CheckBoxCroissant.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.CheckBoxCroissant.UseVisualStyleBackColor = true;
-            this.CheckBoxCroissant.CheckedChanged += new System.EventHandler(this.CheckBoxCroissant_CheckedChanged);
-            // 
-            // CheckBoxPastry
-            // 
-            this.CheckBoxPastry.AutoSize = true;
-            this.CheckBoxPastry.Location = new System.Drawing.Point(258, 375);
-            this.CheckBoxPastry.Name = "CheckBoxPastry";
-            this.CheckBoxPastry.Size = new System.Drawing.Size(15, 14);
-            this.CheckBoxPastry.TabIndex = 18;
-            this.CheckBoxPastry.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.CheckBoxPastry.UseVisualStyleBackColor = true;
-            this.CheckBoxPastry.CheckedChanged += new System.EventHandler(this.CheckBoxPastry_CheckedChanged);
-            // 
-            // CheckBoxOrangeJuice
-            // 
-            this.CheckBoxOrangeJuice.AutoSize = true;
-            this.CheckBoxOrangeJuice.Location = new System.Drawing.Point(258, 227);
-            this.CheckBoxOrangeJuice.Name = "CheckBoxOrangeJuice";
-            this.CheckBoxOrangeJuice.Size = new System.Drawing.Size(15, 14);
-            this.CheckBoxOrangeJuice.TabIndex = 17;
-            this.CheckBoxOrangeJuice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.CheckBoxOrangeJuice.UseVisualStyleBackColor = true;
-            this.CheckBoxOrangeJuice.CheckedChanged += new System.EventHandler(this.CheckBoxOrangeJuice_CheckedChanged);
-            // 
-            // CheckBoxMiloCake
-            // 
-            this.CheckBoxMiloCake.AutoSize = true;
-            this.CheckBoxMiloCake.Location = new System.Drawing.Point(258, 79);
-            this.CheckBoxMiloCake.Name = "CheckBoxMiloCake";
-            this.CheckBoxMiloCake.Size = new System.Drawing.Size(15, 14);
-            this.CheckBoxMiloCake.TabIndex = 16;
-            this.CheckBoxMiloCake.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.CheckBoxMiloCake.UseVisualStyleBackColor = true;
-            this.CheckBoxMiloCake.CheckedChanged += new System.EventHandler(this.CheckBoxMiloCake_CheckedChanged);
-            // 
-            // CheckBoxCheeseStick
-            // 
-            this.CheckBoxCheeseStick.AutoSize = true;
-            this.CheckBoxCheeseStick.Location = new System.Drawing.Point(26, 376);
-            this.CheckBoxCheeseStick.Name = "CheckBoxCheeseStick";
-            this.CheckBoxCheeseStick.Size = new System.Drawing.Size(15, 14);
-            this.CheckBoxCheeseStick.TabIndex = 21;
-            this.CheckBoxCheeseStick.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.CheckBoxCheeseStick.UseVisualStyleBackColor = true;
-            this.CheckBoxCheeseStick.CheckedChanged += new System.EventHandler(this.CheckBoxCheeseStick_CheckedChanged);
-            // 
-            // CheckBoxCoffee
-            // 
-            this.CheckBoxCoffee.AutoSize = true;
-            this.CheckBoxCoffee.Location = new System.Drawing.Point(26, 228);
-            this.CheckBoxCoffee.Name = "CheckBoxCoffee";
-            this.CheckBoxCoffee.Size = new System.Drawing.Size(15, 14);
-            this.CheckBoxCoffee.TabIndex = 20;
-            this.CheckBoxCoffee.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.CheckBoxCoffee.UseVisualStyleBackColor = true;
-            this.CheckBoxCoffee.CheckedChanged += new System.EventHandler(this.CheckBoxCoffee_CheckedChanged);
-            // 
-            // CheckBoxChocolateCake
-            // 
-            this.CheckBoxChocolateCake.AutoSize = true;
-            this.CheckBoxChocolateCake.Location = new System.Drawing.Point(26, 80);
-            this.CheckBoxChocolateCake.Name = "CheckBoxChocolateCake";
-            this.CheckBoxChocolateCake.Size = new System.Drawing.Size(15, 14);
-            this.CheckBoxChocolateCake.TabIndex = 19;
-            this.CheckBoxChocolateCake.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.CheckBoxChocolateCake.UseVisualStyleBackColor = true;
-            this.CheckBoxChocolateCake.CheckedChanged += new System.EventHandler(this.CheckBoxChocolateCake_CheckedChanged);
-            // 
-            // ChocolateCakeCounter
-            // 
-            this.ChocolateCakeCounter.Location = new System.Drawing.Point(3, 100);
-            this.ChocolateCakeCounter.Name = "ChocolateCakeCounter";
-            this.ChocolateCakeCounter.Size = new System.Drawing.Size(38, 23);
-            this.ChocolateCakeCounter.TabIndex = 31;
-            this.ChocolateCakeCounter.Visible = false;
-            this.ChocolateCakeCounter.ValueChanged += new System.EventHandler(this.ChocolateCakeCounter_ValueChanged);
-            // 
-            // CoffeeCounter
-            // 
-            this.CoffeeCounter.Location = new System.Drawing.Point(3, 248);
-            this.CoffeeCounter.Name = "CoffeeCounter";
-            this.CoffeeCounter.Size = new System.Drawing.Size(38, 23);
-            this.CoffeeCounter.TabIndex = 32;
-            this.CoffeeCounter.Visible = false;
-            this.CoffeeCounter.ValueChanged += new System.EventHandler(this.CoffeeCounter_ValueChanged);
-            // 
-            // CheeseStickCounter
-            // 
-            this.CheeseStickCounter.Location = new System.Drawing.Point(3, 396);
-            this.CheeseStickCounter.Name = "CheeseStickCounter";
-            this.CheeseStickCounter.Size = new System.Drawing.Size(38, 23);
-            this.CheeseStickCounter.TabIndex = 33;
-            this.CheeseStickCounter.Visible = false;
-            this.CheeseStickCounter.ValueChanged += new System.EventHandler(this.CheeseStickCounter_ValueChanged);
-            // 
-            // PastryCounter
-            // 
-            this.PastryCounter.Location = new System.Drawing.Point(235, 396);
-            this.PastryCounter.Name = "PastryCounter";
-            this.PastryCounter.Size = new System.Drawing.Size(38, 23);
-            this.PastryCounter.TabIndex = 36;
-            this.PastryCounter.Visible = false;
-            this.PastryCounter.ValueChanged += new System.EventHandler(this.PastryCounter_ValueChanged);
-            // 
-            // OrangeJuiceCounter
-            // 
-            this.OrangeJuiceCounter.Location = new System.Drawing.Point(235, 248);
-            this.OrangeJuiceCounter.Name = "OrangeJuiceCounter";
-            this.OrangeJuiceCounter.Size = new System.Drawing.Size(38, 23);
-            this.OrangeJuiceCounter.TabIndex = 35;
-            this.OrangeJuiceCounter.Visible = false;
-            this.OrangeJuiceCounter.ValueChanged += new System.EventHandler(this.OrangeJuiceCounter_ValueChanged);
-            // 
-            // MiloCakeCounter
-            // 
-            this.MiloCakeCounter.Location = new System.Drawing.Point(235, 100);
-            this.MiloCakeCounter.Name = "MiloCakeCounter";
-            this.MiloCakeCounter.Size = new System.Drawing.Size(38, 23);
-            this.MiloCakeCounter.TabIndex = 34;
-            this.MiloCakeCounter.Visible = false;
-            this.MiloCakeCounter.ValueChanged += new System.EventHandler(this.MiloCakeCounter_ValueChanged);
-            // 
-            // CroissantCounter
-            // 
-            this.CroissantCounter.Location = new System.Drawing.Point(467, 396);
-            this.CroissantCounter.Name = "CroissantCounter";
-            this.CroissantCounter.Size = new System.Drawing.Size(38, 23);
-            this.CroissantCounter.TabIndex = 39;
-            this.CroissantCounter.Visible = false;
-            this.CroissantCounter.ValueChanged += new System.EventHandler(this.CroissantCounter_ValueChanged);
-            // 
-            // WaterCounter
-            // 
-            this.WaterCounter.Location = new System.Drawing.Point(467, 248);
-            this.WaterCounter.Name = "WaterCounter";
-            this.WaterCounter.Size = new System.Drawing.Size(38, 23);
-            this.WaterCounter.TabIndex = 38;
-            this.WaterCounter.Visible = false;
-            this.WaterCounter.ValueChanged += new System.EventHandler(this.WaterCounter_ValueChanged);
-            // 
-            // ChocolateBreadCounter
-            // 
-            this.ChocolateBreadCounter.Location = new System.Drawing.Point(467, 100);
-            this.ChocolateBreadCounter.Name = "ChocolateBreadCounter";
-            this.ChocolateBreadCounter.Size = new System.Drawing.Size(38, 23);
-            this.ChocolateBreadCounter.TabIndex = 37;
-            this.ChocolateBreadCounter.Visible = false;
-            this.ChocolateBreadCounter.ValueChanged += new System.EventHandler(this.ChocolateBreadCounter_ValueChanged);
-            // 
-            // LabelRestaurantName
-            // 
-            this.LabelRestaurantName.Font = new System.Drawing.Font("Montserrat", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LabelRestaurantName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(142)))), ((int)(((byte)(112)))));
-            this.LabelRestaurantName.Location = new System.Drawing.Point(39, 27);
-            this.LabelRestaurantName.Name = "LabelRestaurantName";
-            this.LabelRestaurantName.Size = new System.Drawing.Size(303, 38);
-            this.LabelRestaurantName.TabIndex = 40;
-            this.LabelRestaurantName.Text = "Restaurant Name";
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Font = new System.Drawing.Font("Montserrat Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(142)))), ((int)(((byte)(112)))));
-            this.label1.Location = new System.Drawing.Point(47, 480);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 25);
-            this.label1.TabIndex = 41;
-            this.label1.Text = "Cheese Stick";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label2.Font = new System.Drawing.Font("Montserrat Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(142)))), ((int)(((byte)(112)))));
-            this.label2.Location = new System.Drawing.Point(47, 332);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(130, 25);
-            this.label2.TabIndex = 42;
-            this.label2.Text = "Coffee";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label3.Font = new System.Drawing.Font("Montserrat Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(142)))), ((int)(((byte)(112)))));
-            this.label3.Location = new System.Drawing.Point(47, 185);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(130, 25);
-            this.label3.TabIndex = 43;
-            this.label3.Text = "Chocolate Cake";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label4.Font = new System.Drawing.Font("Montserrat Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(142)))), ((int)(((byte)(112)))));
-            this.label4.Location = new System.Drawing.Point(279, 185);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(130, 25);
-            this.label4.TabIndex = 46;
-            this.label4.Text = "Milo Cake";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label5
-            // 
-            this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label5.Font = new System.Drawing.Font("Montserrat Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(142)))), ((int)(((byte)(112)))));
-            this.label5.Location = new System.Drawing.Point(279, 332);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(130, 25);
-            this.label5.TabIndex = 45;
-            this.label5.Text = "Orange Juice";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label6.Font = new System.Drawing.Font("Montserrat Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(142)))), ((int)(((byte)(112)))));
-            this.label6.Location = new System.Drawing.Point(279, 480);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(130, 25);
-            this.label6.TabIndex = 44;
-            this.label6.Text = "Pastry";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label8
-            // 
-            this.label8.BackColor = System.Drawing.Color.White;
-            this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label8.Font = new System.Drawing.Font("Montserrat", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(142)))), ((int)(((byte)(112)))));
-            this.label8.Location = new System.Drawing.Point(511, 185);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(130, 25);
-            this.label8.TabIndex = 49;
-            this.label8.Text = "Chocolate Bread";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label9
-            // 
-            this.label9.BackColor = System.Drawing.Color.White;
-            this.label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label9.Font = new System.Drawing.Font("Montserrat Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(142)))), ((int)(((byte)(112)))));
-            this.label9.Location = new System.Drawing.Point(511, 332);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(130, 25);
-            this.label9.TabIndex = 48;
-            this.label9.Text = "Water";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label10
-            // 
-            this.label10.BackColor = System.Drawing.Color.White;
-            this.label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label10.Font = new System.Drawing.Font("Montserrat Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(142)))), ((int)(((byte)(112)))));
-            this.label10.Location = new System.Drawing.Point(511, 480);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(130, 25);
-            this.label10.TabIndex = 47;
-            this.label10.Text = "Coissant";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // UsersControl
             // 
             this.UsersControl.Name = "UsersControl";
@@ -915,43 +459,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(249)))), ((int)(((byte)(244)))));
             this.ClientSize = new System.Drawing.Size(984, 661);
             this.ControlBox = false;
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.LabelRestaurantName);
-            this.Controls.Add(this.CroissantCounter);
-            this.Controls.Add(this.WaterCounter);
-            this.Controls.Add(this.ChocolateBreadCounter);
-            this.Controls.Add(this.PastryCounter);
-            this.Controls.Add(this.OrangeJuiceCounter);
-            this.Controls.Add(this.MiloCakeCounter);
-            this.Controls.Add(this.CheeseStickCounter);
-            this.Controls.Add(this.CoffeeCounter);
-            this.Controls.Add(this.ChocolateCakeCounter);
-            this.Controls.Add(this.CheckBoxCheeseStick);
-            this.Controls.Add(this.CheckBoxCoffee);
-            this.Controls.Add(this.CheckBoxChocolateCake);
-            this.Controls.Add(this.CheckBoxPastry);
-            this.Controls.Add(this.CheckBoxOrangeJuice);
-            this.Controls.Add(this.CheckBoxMiloCake);
-            this.Controls.Add(this.CheckBoxCroissant);
-            this.Controls.Add(this.CheckBoxWater);
-            this.Controls.Add(this.CheckBoxChocolateBread);
-            this.Controls.Add(this.pictureBox9);
-            this.Controls.Add(this.pictureBox8);
-            this.Controls.Add(this.pictureBox7);
-            this.Controls.Add(this.pictureBox6);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
@@ -970,29 +477,142 @@
             this.panel4.ResumeLayout(false);
             this.ToolStrip.ResumeLayout(false);
             this.ToolStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ChocolateCakeCounter)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CoffeeCounter)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CheeseStickCounter)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PastryCounter)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.OrangeJuiceCounter)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MiloCakeCounter)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CroissantCounter)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.WaterCounter)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ChocolateBreadCounter)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
+            this.LoadItems();
+        }
+
+        private Dictionary<int, (CheckBox, NumericUpDown)> checkBoxCounterMapping = new Dictionary<int, (CheckBox, NumericUpDown)>();
+        private Dictionary<int, Item> items = new Dictionary<int, Item>(); // assuming you have a way to get the price
+        private Dictionary<int, decimal> itemTotals = new Dictionary<int, decimal>();
+
+        private void LoadItems()
+        {
+            // Retrieve all items from the database
+            List<Item> items = this.db.Item_List();
+
+            // Define initial positions for dynamic controls
+            int initialX = 47;
+            int initialY = 80;
+            int imageSize = 130;
+            int spacingX = 98;
+            int spacingY = 18;
+            int labelOffsetY = 0; // Set label offset to 0 to overlap with the image
+            int columnCount = 3; // Number of items per row
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                Item item = items[i];
+
+                // Calculate positions
+                int currentX = initialX + (i % columnCount) * (imageSize + spacingX);
+                int currentY = initialY + (i / columnCount) * (imageSize + spacingY);
+
+                // Create PictureBox
+                PictureBox pictureBox = new PictureBox
+                {
+                    BorderStyle = BorderStyle.FixedSingle,
+                    ImageLocation = item.Image, // Use ImageLocation for path
+                    SizeMode = PictureBoxSizeMode.StretchImage,
+                    Location = new Point(currentX, currentY),
+                    Size = new Size(imageSize, imageSize),
+                    Name = $"pictureBox{i}",
+                    TabIndex = 12,
+                    TabStop = false
+                };
+
+                // Create Label
+                Label label = new Label
+                {
+                    BackColor = Color.FromArgb(200, 255, 255, 255), // Semi-transparent white background
+                    BorderStyle = BorderStyle.FixedSingle,
+                    Font = new Font("Montserrat Medium", 9.75F, FontStyle.Bold),
+                    ForeColor = Color.FromArgb(12, 142, 112),
+                    Location = new Point(currentX, currentY + labelOffsetY + imageSize - 25),
+                    Size = new Size(imageSize, 25), // Adjust the size to fit over the image
+                    Name = $"label{i}",
+                    Text = item.Title,
+                    TextAlign = ContentAlignment.MiddleCenter,
+                    TabIndex = 47,
+                };
+
+                // Create CheckBox
+                CheckBox checkBox = new CheckBox
+                {
+                    Location = new Point(currentX - 21, currentY + 1),
+                    Size = new Size(15, 14),
+                    Name = $"CheckBox{i}",
+                    TextAlign = ContentAlignment.MiddleCenter
+                };
+
+                // Create NumericUpDown
+                NumericUpDown counter = new NumericUpDown
+                {
+                    Location = new Point(currentX - 44, currentY + 20),
+                    Size = new Size(38, 23),
+                    Name = $"Counter{i}",
+                    Visible = false // Initially hidden, can be made visible based on logic
+                };
+
+                // Add controls to the form
+                this.Controls.Add(pictureBox);
+                this.Controls.Add(label); // Add the label after the picture box to place it in front
+                this.Controls.Add(checkBox);
+                this.Controls.Add(counter);
+
+                // Ensure the label is on top of the image
+                label.BringToFront();
+
+                // Optionally add event handlers if needed
+                checkBox.CheckedChanged += (s, e) =>
+                {
+                    counter.Visible = checkBox.Checked;
+                };
+
+                // Store mapping of checkboxes to counters
+                checkBoxCounterMapping[item.Id] = (checkBox, counter);
+                this.items[item.Id] = item;
+                itemTotals[item.Id] = 0; // Initialize total for each item
+
+                // Add event handlers
+                checkBox.CheckedChanged += (s, e) => CheckBox_CheckedChanged(s, e, item.Id);
+                counter.ValueChanged += (s, e) => Counter_ValueChanged(s, e, item.Id);
+            }
+        }
+
+
+        private void CheckBox_CheckedChanged(object sender, EventArgs e, int itemId)
+        {
+            CheckBox checkBoxSender = sender as CheckBox;
+            if (checkBoxSender != null && checkBoxCounterMapping.TryGetValue(itemId, out (CheckBox, NumericUpDown) checkboxCounter))
+            {
+                CheckBox checkBox = checkboxCounter.Item1;
+                NumericUpDown numericUpDown = checkboxCounter.Item2;
+
+                if (checkBox.Checked)
+                {
+                    numericUpDown.Visible = true;
+                }
+                else
+                {
+                    numericUpDown.Visible = false;
+                    itemTotals[itemId] = 0;
+                    numericUpDown.Value = 0;
+                }
+            }
+        }
+
+        private void Counter_ValueChanged(object sender, EventArgs e, int itemId)
+        {
+            NumericUpDown counter = sender as NumericUpDown;
+            if (counter != null)
+            {
+                itemTotals[itemId] = this.items[itemId].Price * counter.Value;
+                PreviewPurchase();
+            }
         }
 
         #endregion
