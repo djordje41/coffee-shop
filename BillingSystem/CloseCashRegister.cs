@@ -1,139 +1,147 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data;
 
 namespace BillingSystem
 {
     public partial class CloseCashRegister : Form
     {
-        int chocolateCake;
-        int miloCake;
-        int chocolateBread;
-        int coffee;
-        int orangeJuice;
-        int water;
-        int cheeseStick;
-        int pastry;
-        int croissant;
+        private readonly DatabaseConnector db = new();
+        private List<Receipt> receipts = new();
 
-        List<double> LchocolateCake = new List<double>();
-        List<double> LmiloCake = new List<double>();
-        List<double> LchocolateBread = new List<double>();
-        List<double> Lcoffee = new List<double>();
-        List<double> LorangeJuice = new List<double>();
-        List<double> Lwater = new List<double>();
-        List<double> LcheeseStick = new List<double>();
-        List<double> Lpastry = new List<double>();
-        List<double> Lcroissant = new List<double>();
-
-        double totalItems;
-        double totalSold;
-
-        int prodAux = 0;
-        public CloseCashRegister(int chocolateCake, int miloCake, int chocolateBread, int coffee, int orangeJuice, int water, int cheeseStick, int pastry, int croissant, int prodAux, List<double> LchocolateCake, List<double> LmiloCake, List<double> LchocolateBread, List<double> Lcoffee, List<double> LorangeJuice, List<double> Lwater, List<double> LcheeseStick, List<double> Lpastry, List<double> Lcroissant)
+        public CloseCashRegister()
         {
             InitializeComponent();
-            this.chocolateCake = chocolateCake;
-            this.miloCake = miloCake;
-            this.chocolateBread = chocolateBread;
-            this.coffee = coffee;
-            this.orangeJuice = orangeJuice;
-            this.water = water;
-            this.cheeseStick = cheeseStick;
-            this.pastry = pastry;
-            this.croissant = croissant;
+            LoadReceipts();
+        }
 
+        private void LoadReceipts()
+        {
+            receipts = db.Receipt_List();
 
-            this.LchocolateCake = LchocolateCake;
-            this.LmiloCake = LmiloCake;
-            this.LchocolateBread = LchocolateBread;
-            this.Lcoffee = Lcoffee;
-            this.LorangeJuice = LorangeJuice;
-            this.Lwater = Lwater;
-            this.LcheeseStick = LcheeseStick;
-            this.Lpastry = Lpastry;
-            this.Lcroissant = Lcroissant;
-
-            this.prodAux = prodAux;
-
-            for (int i = 0; i < prodAux; i++)
+            if (receipts == null || receipts.Count == 0)
             {
-                ListViewItem item = new ListViewItem();
-                item = lvwCerrar.Items.Add(Convert.ToString(LchocolateCake[i]));
-                item.SubItems.Add(Convert.ToString(LmiloCake[i]));
-                item.SubItems.Add(Convert.ToString(LchocolateBread[i]));
-                item.SubItems.Add(Convert.ToString(Lcoffee[i]));
-                item.SubItems.Add(Convert.ToString(LorangeJuice[i]));
-                item.SubItems.Add(Convert.ToString(Lwater[i]));
-                item.SubItems.Add(Convert.ToString(LcheeseStick[i]));
-                item.SubItems.Add(Convert.ToString(Lpastry[i]));
-                item.SubItems.Add(Convert.ToString(Lcroissant[i]));
+                MessageBox.Show("Lista računa je prazna.");
+                return;
             }
 
+            // Clear existing items and columns
+            lvwCerrar.Items.Clear();
+            lvwCerrar.Columns.Clear();
+
+            // Get unique item names for columns
+            var itemNames = receipts
+                .SelectMany(r => r.ItemReceipts)
+                .Select(ir => ir.Item.Title)
+                .Distinct()
+                .ToList();
+
+            // Add columns dynamically
+            lvwCerrar.Columns.Add("ID", 100);
+            lvwCerrar.Columns.Add("Korisnik", 100);
+            foreach (var itemName in itemNames)
+            {
+                lvwCerrar.Columns.Add(itemName, 100);
+            }
+
+            // Add rows
+            foreach (var receipt in receipts)
+            {
+                ListViewItem listViewItem = new(receipt.Id.ToString());
+                listViewItem.SubItems.Add(receipt.User.Username);
+
+                foreach (var itemName in itemNames)
+                {
+                    var itemReceipt = receipt.ItemReceipts.FirstOrDefault(ir => ir.Item.Title == itemName);
+                    listViewItem.SubItems.Add(itemReceipt?.Quantity.ToString() ?? "0");
+                }
+
+                lvwCerrar.Items.Add(listViewItem);
+            }
         }
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-
+            // Add your back button logic here
         }
 
         private void RecordRegisterButton_Click(object sender, EventArgs e)
         {
-
+            // Add your record register button logic here
         }
 
         private void CloseCashRegister_Load(object sender, EventArgs e)
         {
-
+            // Add your form load logic here
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void RecordButton_Click(object sender, EventArgs e)
         {
             try
             {
-                if (prodAux != 0)
+                if (receipts.Count != 0)
                 {
-                    string registers = Application.StartupPath + @".\Registers";
-                    try
+                    string registersDirectory = Path.Combine(Application.StartupPath, "Registers");
+
+                    // Create the directory if it doesn't exist
+                    Directory.CreateDirectory(registersDirectory);
+
+                    string fileName = $"registar-kase_{DateTime.Now.ToString("dd-MM-yyyy_HH.mm.ss")}.txt";
+                    string filePath = Path.Combine(registersDirectory, fileName);
+
+                    using (StreamWriter sw = new StreamWriter(filePath))
                     {
-                        if (!Directory.Exists(registers))
+                        sw.Write("Danas smo prodali:" + Environment.NewLine);
+                        foreach (ColumnHeader column in lvwCerrar.Columns)
                         {
-                            Directory.CreateDirectory(registers);
+                            if (column.Text.Length >= 8)
+                            {
+                                sw.Write(column.Text + "\t");
+                            }
+                            else
+                            {
+                                sw.Write(column.Text + "\t\t");
+                            }
                         }
+                        sw.WriteLine();
+
+                        foreach (ListViewItem item in lvwCerrar.Items)
+                        {
+                            foreach (ListViewItem.ListViewSubItem subItem in item.SubItems)
+                            {
+                                if (subItem.Text.Length >= 8)
+                                {
+                                    sw.Write(subItem.Text + "\t");
+                                }
+                                else
+                                {
+                                    sw.Write(subItem.Text + "\t\t");
+                                }
+                            }
+                            sw.WriteLine();
+                        }
+
+                        // Calculate total from receipts
+                        double totalItems = receipts.Sum(r => r.ItemReceipts.Sum(ir => ir.Quantity));
+                        decimal totalSold = receipts.Sum(r => r.ItemReceipts.Sum(ir => ir.Quantity * ir.Item.Price));
+
+                        sw.WriteLine(Environment.NewLine);
+                        sw.WriteLine($"Ukupno prodatih artikala: {totalItems}" + Environment.NewLine);
+                        sw.WriteLine($"Ukupno novca zarađeno: {totalSold}RSD" + Environment.NewLine);
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error: " + ex.Message);
-                    }
-                    StreamWriter sw = new StreamWriter(@".\Registers\caja.txt");
-                    sw.Write("Today were sold:" + Environment.NewLine);
-                    sw.Write("Chocolate Cake    Milo Cake    Chocolate Bread    Coffee    Water    Orange Juice    Cheese Stick    Pastry    Croissant" + Environment.NewLine);
-                    for (int i = 0; i < prodAux; i++)
-                    {
-                        sw.Write(LchocolateCake[i] + "                 " + LmiloCake[i] + "            " + LchocolateBread[i] + "                  " + Lcoffee[i] + "         " + Lwater[i] + "        " + LorangeJuice[i] + "               " + LcheeseStick[i] + "               " + Lpastry[i] + "         " + Lcroissant[i] + Environment.NewLine);
-                        sw.Write(Environment.NewLine);
-                        totalItems = totalItems + LchocolateCake[i] + LmiloCake[i] + LchocolateBread[i] + Lcoffee[i] + Lwater[i] + LorangeJuice[i] + LcheeseStick[i] + Lpastry[i] + Lcroissant[i];
-                        totalSold = totalSold + (LchocolateCake[i] * chocolateCake) + (LmiloCake[i] * miloCake) + (LchocolateBread[i] * chocolateBread) + (Lcoffee[i] * coffee) + (Lwater[i] * water) + (LorangeJuice[i] * orangeJuice) + (LcheeseStick[i] * cheeseStick) + (Lpastry[i] * pastry) + (Lcroissant[i] * croissant);
-                    }
-                    sw.Write($"Total items sold: {totalItems}" + Environment.NewLine);
-                    sw.Write($"Total money earned: ${totalSold}" + Environment.NewLine);
-                    MessageBox.Show("Register recorded.");
-                    sw.Close();
+
+                    MessageBox.Show("Sačuvani računi u registru.");
+
+                    db.Receipts_Delete();
+
+                    Close();
                 }
                 else
                 {
-                    MessageBox.Show("Empty list.");
+                    MessageBox.Show("Lista računa je prazna.");
                 }
             }
             catch (Exception ex)
