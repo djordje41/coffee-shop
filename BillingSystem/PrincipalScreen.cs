@@ -45,10 +45,10 @@
         {
             decimal subtotal = itemTotals.Values.Sum(); // Calculate subtotal based on item totals
 
-            Subtotal.Text = $"${subtotal}"; // Update subtotal label
+            Subtotal.Text = $"{subtotal:F2}RSD"; // Update subtotal label
 
             decimal taxes = subtotal * 0.08m; // Calculate taxes
-            Taxes.Text = $"${taxes}"; // Update taxes label
+            Taxes.Text = $"{taxes:F2}RSD"; // Update taxes label
 
             decimal total = subtotal + taxes; // Calculate total before service charge
             decimal service = total * 0.10m; // Calculate service charge
@@ -56,13 +56,13 @@
 
             if (CheckBoxService.Checked) // Check if service charge is applied
             {
-                Service.Text = $"${service}"; // Update service charge label
-                LabelTotal.Text = $"${grandTotal}"; // Update grand total label
+                Service.Text = $"{service:F2}RSD"; // Update service charge label
+                LabelTotal.Text = $"{grandTotal:F2}RSD"; // Update grand total label
             }
             else
             {
                 Service.Text = ""; // Clear service charge label if not applied
-                LabelTotal.Text = $"${total}"; // Update grand total label without service charge
+                LabelTotal.Text = $"{total:F2}RSD"; // Update grand total label without service charge
             }
         }
 
@@ -92,7 +92,7 @@
             Subtotal.Text = "";
             Taxes.Text = "";
             Service.Text = "";
-            LabelTotal.Text = "$00000";
+            LabelTotal.Text = "0000.00RSD";
             ReceiptTextBox.Text = "";
         }
 
@@ -105,7 +105,7 @@
         private void ExitButton_Click(object sender, EventArgs e)
         {
             usersToolStripMenuItem.Enabled = false;
-            LoginScreen loginscreen = new LoginScreen();
+            LoginScreen loginscreen = new();
             loginscreen.Show();
             this.Hide();
         }
@@ -121,70 +121,105 @@
 
         private void ReceiptButton_Click(object sender, EventArgs e)
         {
-            ReceiptTextBox.Clear();
-            string date = DateTime.UtcNow.ToString("dd-MM-yyyy");
-            string hour = DateTime.Now.ToString("hh:mm:ss");
-
-            ReceiptTextBox.AppendText("\t\tRESTAURANT NAME" + Environment.NewLine);
-            ReceiptTextBox.AppendText("\t" + "            RESTAURANT LOCATION" + Environment.NewLine);
-            ReceiptTextBox.AppendText("\t" + "                     NIT: 00000000-0" + Environment.NewLine);
-            ReceiptTextBox.AppendText("\t" + "                   DIR: CR 00 #00 - 00" + Environment.NewLine);
-            ReceiptTextBox.AppendText("\t" + "                    TEL: 0000000 OP 0" + Environment.NewLine);
-            ReceiptTextBox.AppendText(Environment.NewLine);
-            ReceiptTextBox.AppendText("-----------------------------------------------------------" + Environment.NewLine);
-            ReceiptTextBox.AppendText("PRINT: 1\t\t\t Cash Register No: 1" + Environment.NewLine);
-            ReceiptTextBox.AppendText("SALES INVOICE #M0: \t 000000" + Environment.NewLine);
-            ReceiptTextBox.AppendText("ORDER:    7" + Environment.NewLine);
-            ReceiptTextBox.AppendText($"DATE:    {date}\t HOUR:    {hour}" + Environment.NewLine);
-            ReceiptTextBox.AppendText($"ATTENDED BY: {this.user.Username}" + Environment.NewLine);
-            ReceiptTextBox.AppendText(Environment.NewLine);
-            ReceiptTextBox.AppendText("====================================" + Environment.NewLine);
-            ReceiptTextBox.AppendText("CANT\tDESCRIPTION\t\tPRICE\t    TOTAL" + Environment.NewLine);
-
-            double totalAmount = 0.0;
-
-            foreach (KeyValuePair<int, (CheckBox, NumericUpDown)> pair in checkBoxCounterMapping)
+            try
             {
-                CheckBox checkBox = pair.Value.Item1;
-                NumericUpDown counter = pair.Value.Item2;
+                // Create a new receipt in the database and get the generated Receipt object
+                Receipt? newReceipt = CreateReceipt();
 
-                if (checkBox.Checked)
+                if (newReceipt == null)
                 {
-                    string productName = this.items[pair.Key].Title;
-                    decimal price = this.items[pair.Key].Price;
-                    decimal quantity = counter.Value;
-                    decimal total = price * quantity;
-
-                    int spacesNeeded = Math.Max(0, 30 - productName.Length);
-                    string spaceBetween = new string(' ', spacesNeeded);
-
-                    ReceiptTextBox.AppendText($"{quantity}\t{productName}{spaceBetween}\t{price:F2}\t    {total:F2}" + Environment.NewLine);
-                    totalAmount += (double)total;
+                    return;
                 }
+
+                ReceiptTextBox.Clear();
+                string date = DateTime.UtcNow.ToString("dd-MM-yyyy");
+                string hour = DateTime.Now.ToString("HH:mm:ss");
+
+                // Retrieve the count of files in the Receipts directory
+                string receiptsDirectory = Path.Combine(Application.StartupPath, "Registers");
+                if (!Directory.Exists(receiptsDirectory))
+                {
+                    Directory.CreateDirectory(receiptsDirectory);
+                }
+                int cashRegisterNumber = Directory.GetFiles(receiptsDirectory).Length + 1;
+
+                ReceiptTextBox.AppendText("\t" + "         KAFE PRODAVNICA DADA" + Environment.NewLine);
+                ReceiptTextBox.AppendText("       ADRESA: Kosovska Mitrovica, Lole Ribara 33a" + Environment.NewLine);
+                ReceiptTextBox.AppendText("\t" + "                  PIB: 12345678-9" + Environment.NewLine);
+                ReceiptTextBox.AppendText("\t" + "                  TEL: 0649511647" + Environment.NewLine);
+                ReceiptTextBox.AppendText(Environment.NewLine);
+                ReceiptTextBox.AppendText("----------------------------------------------------------" + Environment.NewLine);
+                ReceiptTextBox.AppendText("ŠTAMPA: 1\t\tREGISTAR:  " + cashRegisterNumber + Environment.NewLine);
+                ReceiptTextBox.AppendText($"RAČUN:   {newReceipt.Id}" + Environment.NewLine);
+                ReceiptTextBox.AppendText($"DATUM:   {date}\tVREME:  {hour}" + Environment.NewLine);
+                ReceiptTextBox.AppendText($"USLUŽIO: {this.user.Username}" + Environment.NewLine);
+                ReceiptTextBox.AppendText(Environment.NewLine);
+                ReceiptTextBox.AppendText("====================================" + Environment.NewLine);
+                ReceiptTextBox.AppendText("KOL\tOPIS\t\t\tCENA\tUKUPNO" + Environment.NewLine);
+
+                double totalAmount = 0.0;
+                double subtotal = 0.0;
+                double taxes = 0.0;
+
+                foreach (KeyValuePair<int, (CheckBox, NumericUpDown)> pair in checkBoxCounterMapping)
+                {
+                    CheckBox checkBox = pair.Value.Item1;
+                    NumericUpDown counter = pair.Value.Item2;
+
+                    if (checkBox.Checked)
+                    {
+                        string productName = this.items[pair.Key].Title;
+                        decimal price = this.items[pair.Key].Price;
+                        decimal quantity = counter.Value;
+                        decimal total = price * quantity;
+
+                        int spacesNeeded = Math.Max(0, 30 - productName.Length);
+                        string spaceBetween = new string(' ', spacesNeeded);
+
+                        ReceiptTextBox.AppendText($"{quantity}\t{productName}{spaceBetween}\t{price:F2}\t{total:F2}" + Environment.NewLine);
+                        totalAmount += (double)total;
+                        subtotal += (double)(price * quantity);
+                    }
+                }
+
+                taxes = subtotal * 0.08;
+                totalAmount += taxes;
+
+                /*------------------------------- TAX -----------------------------------*/
+                ReceiptTextBox.AppendText("====================================" + Environment.NewLine);
+                ReceiptTextBox.AppendText("\t\t      " + "POREZ" + Environment.NewLine);
+                ReceiptTextBox.AppendText("====================================" + Environment.NewLine);
+                ReceiptTextBox.AppendText($"\tOSNOVA\t\t{subtotal:F2}" + Environment.NewLine);
+                ReceiptTextBox.AppendText($"\tPOREZ\t\t\t8%" + Environment.NewLine);
+                ReceiptTextBox.AppendText($"\tUKUPAN POREZ\t\t{taxes:F2}" + Environment.NewLine);
+                ReceiptTextBox.AppendText(Environment.NewLine);
+
+                ReceiptTextBox.AppendText("====================================" + Environment.NewLine);
+                ReceiptTextBox.AppendText($"\tUKUPNO:\t\t{totalAmount:F2}" + Environment.NewLine);
+                ReceiptTextBox.AppendText($"\tPOPUST:\t\t\t0" + Environment.NewLine);
+
+                /*----------------------------- TOTALS ---------------------------------*/
+                if (CheckBoxService.Checked)
+                {
+                    double serviceCharge = totalAmount * 0.10;
+                    double grandTotal = totalAmount + serviceCharge;
+                    ReceiptTextBox.AppendText($"\tUSLUGA:\t\t\t{serviceCharge:F2}" + Environment.NewLine);
+                    ReceiptTextBox.AppendText($"\tUKUPNO:\t\t{grandTotal:F2}" + Environment.NewLine);
+                }
+                else
+                {
+                    ReceiptTextBox.AppendText($"\tUKUPNO:\t\t{totalAmount:F2}" + Environment.NewLine);
+                }
+
+                ReceiptTextBox.AppendText("====================================" + Environment.NewLine);
             }
-
-            ReceiptTextBox.AppendText("====================================" + Environment.NewLine);
-            ReceiptTextBox.AppendText($"\t\t\tTOTAL:\t\t{totalAmount:F2}" + Environment.NewLine);
-            ReceiptTextBox.AppendText($"\t\t\tDISC:\t\t0" + Environment.NewLine);
-
-            if (CheckBoxService.Checked)
+            catch (Exception ex)
             {
-                double serviceCharge = Math.Floor(totalAmount * 0.10);
-                double grandTotal = totalAmount + serviceCharge;
-                ReceiptTextBox.AppendText($"\t\t\tSERVICE:\t\t{serviceCharge:F2}" + Environment.NewLine);
-                ReceiptTextBox.AppendText($"\t\t\tTOTAL:\t\t{grandTotal:F2}" + Environment.NewLine);
+                MessageBox.Show(ex.Message);
             }
-            else
-            {
-                ReceiptTextBox.AppendText($"\t\t\tTOTAL:\t\t{totalAmount:F2}" + Environment.NewLine);
-            }
-
-            ReceiptTextBox.AppendText("====================================" + Environment.NewLine);
-
-            CreateReceipt();
         }
 
-        private void CreateReceipt()
+        private Receipt? CreateReceipt()
         {
             List<ItemReceipt> receipeItems = new();
 
@@ -216,7 +251,7 @@
             if (receipeItems.Count == 0)
             {
                 MessageBox.Show("No items selected for the receipt.");
-                return;
+                return null;
             }
 
             // Create the receipt
@@ -230,6 +265,8 @@
 
             // Save the item receipts
             db.ItemReceipts_Create(receipeItems.ToArray());
+
+            return newReceipt;
         }
 
         private void closeCashRegisterToolStripMenuItem_Click(object sender, EventArgs e)

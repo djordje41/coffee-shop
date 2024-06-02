@@ -1,4 +1,4 @@
-namespace BillingSystem
+﻿namespace BillingSystem
 {
     public partial class LoginScreen : Form
     {
@@ -25,7 +25,7 @@ namespace BillingSystem
             }
             else
             {
-                MessageBox.Show("Wrong username or password. Try again.");
+                MessageBox.Show("Pogrešno korisničko ime ili lozinka. Pokušajte ponovo.");
                 this.ResetFields();
                 UserBox.Focus();
             }
@@ -42,11 +42,11 @@ namespace BillingSystem
 
             if (userCreated)
             {
-                MessageBox.Show("User registered successfully!");
+                MessageBox.Show("Korisnik uspešno registrovan!");
             }
             else
             {
-                MessageBox.Show("User already exists.");
+                MessageBox.Show("Korisnik već postoji.");
             }
 
             return userCreated;

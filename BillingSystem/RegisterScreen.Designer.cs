@@ -50,7 +50,7 @@
             CancelRegisterButton.Name = "CancelRegisterButton";
             CancelRegisterButton.Size = new Size(76, 24);
             CancelRegisterButton.TabIndex = 5;
-            CancelRegisterButton.Text = "Cancel";
+            CancelRegisterButton.Text = "Odustani";
             CancelRegisterButton.UseVisualStyleBackColor = false;
             CancelRegisterButton.Click += CancelRegisterButton_Click;
             // 
@@ -62,9 +62,9 @@
             RegisterButton.ForeColor = Color.White;
             RegisterButton.Location = new Point(105, 387);
             RegisterButton.Name = "RegisterButton";
-            RegisterButton.Size = new Size(76, 24);
+            RegisterButton.Size = new Size(83, 24);
             RegisterButton.TabIndex = 3;
-            RegisterButton.Text = "Register";
+            RegisterButton.Text = "Registracija";
             RegisterButton.UseVisualStyleBackColor = false;
             RegisterButton.Click += RegisterButton_Click;
             // 
@@ -83,11 +83,11 @@
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(12, 142, 112);
-            label2.Location = new Point(149, 305);
+            label2.Location = new Point(160, 305);
             label2.Name = "label2";
-            label2.Size = new Size(83, 18);
+            label2.Size = new Size(67, 18);
             label2.TabIndex = 10;
-            label2.Text = "Password";
+            label2.Text = "Lozinka";
             label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label1
@@ -95,11 +95,11 @@
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.FromArgb(12, 142, 112);
-            label1.Location = new Point(167, 249);
+            label1.Location = new Point(134, 249);
             label1.Name = "label1";
-            label1.Size = new Size(44, 18);
+            label1.Size = new Size(121, 18);
             label1.TabIndex = 11;
-            label1.Text = "User";
+            label1.Text = "Korisničko ime";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             label1.Click += label1_Click;
             // 
@@ -132,11 +132,11 @@
             Register.AutoSize = true;
             Register.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             Register.ForeColor = Color.FromArgb(12, 142, 112);
-            Register.Location = new Point(140, 38);
+            Register.Location = new Point(124, 38);
             Register.Name = "Register";
-            Register.Size = new Size(100, 25);
+            Register.Size = new Size(137, 25);
             Register.TabIndex = 7;
-            Register.Text = "Register";
+            Register.Text = "Registracija";
             Register.TextAlign = ContentAlignment.MiddleCenter;
             Register.Click += Register_Click;
             // 
@@ -160,7 +160,7 @@
             MinimumSize = new Size(400, 500);
             Name = "RegisterScreen";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Register";
+            Text = "Registracija";
             Load += RegisterScreen_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);

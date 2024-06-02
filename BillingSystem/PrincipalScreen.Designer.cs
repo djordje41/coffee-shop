@@ -33,456 +33,454 @@ namespace BillingSystem
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrincipalScreen));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.CheckBoxService = new System.Windows.Forms.CheckBox();
-            this.LabelTaxes = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.Subtotal = new System.Windows.Forms.Label();
-            this.Taxes = new System.Windows.Forms.Label();
-            this.LabelService = new System.Windows.Forms.Label();
-            this.Service = new System.Windows.Forms.Label();
-            this.ExitButton = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.LabelTotalString = new System.Windows.Forms.Label();
-            this.LabelTotal = new System.Windows.Forms.Label();
-            this.ResetButton = new System.Windows.Forms.Button();
-            this.ReceiptButton = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.ToolStrip = new System.Windows.Forms.ToolStrip();
-            this.ToolStripCopyButton = new System.Windows.Forms.ToolStripButton();
-            this.ToolStripCutButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSaveButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripPrintButton = new System.Windows.Forms.ToolStripButton();
-            this.ReceiptTextBox = new System.Windows.Forms.RichTextBox();
-            this.LabelRestaurantName = new System.Windows.Forms.Label();
-            this.UsersControl = new System.Windows.Forms.ToolStripMenuItem();
-            this.UsersControlView = new System.Windows.Forms.ToolStripMenuItem();
-            this.RegisterControls = new System.Windows.Forms.ToolStripMenuItem();
-            this.RegisterControlsClose = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.controlsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.registersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.closeCashRegisterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.ToolStrip.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
-            this.SuspendLayout();
+            panel1 = new Panel();
+            CheckBoxService = new CheckBox();
+            LabelTaxes = new Label();
+            label7 = new Label();
+            Subtotal = new Label();
+            Taxes = new Label();
+            LabelService = new Label();
+            Service = new Label();
+            ExitButton = new Button();
+            panel2 = new Panel();
+            LabelTotalString = new Label();
+            LabelTotal = new Label();
+            ResetButton = new Button();
+            ReceiptButton = new Button();
+            panel4 = new Panel();
+            ToolStrip = new ToolStrip();
+            ToolStripCopyButton = new ToolStripButton();
+            ToolStripCutButton = new ToolStripButton();
+            toolStripSaveButton = new ToolStripButton();
+            toolStripPrintButton = new ToolStripButton();
+            ReceiptTextBox = new RichTextBox();
+            LabelRestaurantName = new Label();
+            UsersControl = new ToolStripMenuItem();
+            UsersControlView = new ToolStripMenuItem();
+            RegisterControls = new ToolStripMenuItem();
+            RegisterControlsClose = new ToolStripMenuItem();
+            menuStrip1 = new MenuStrip();
+            controlsToolStripMenuItem = new ToolStripMenuItem();
+            usersToolStripMenuItem = new ToolStripMenuItem();
+            viewToolStripMenuItem = new ToolStripMenuItem();
+            registersToolStripMenuItem = new ToolStripMenuItem();
+            closeCashRegisterToolStripMenuItem = new ToolStripMenuItem();
+            printPreviewDialog1 = new PrintPreviewDialog();
+            printDocument1 = new System.Drawing.Printing.PrintDocument();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            panel4.SuspendLayout();
+            ToolStrip.SuspendLayout();
+            menuStrip1.SuspendLayout();
+            SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.panel1.Controls.Add(this.CheckBoxService);
-            this.panel1.Controls.Add(this.LabelTaxes);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.Subtotal);
-            this.panel1.Controls.Add(this.Taxes);
-            this.panel1.Controls.Add(this.LabelService);
-            this.panel1.Controls.Add(this.Service);
-            this.panel1.Controls.Add(this.ExitButton);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.ResetButton);
-            this.panel1.Controls.Add(this.ReceiptButton);
-            this.panel1.Location = new System.Drawing.Point(0, 536);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(984, 125);
-            this.panel1.TabIndex = 0;
+            panel1.BackColor = Color.FromArgb(219, 219, 219);
+            panel1.Controls.Add(CheckBoxService);
+            panel1.Controls.Add(LabelTaxes);
+            panel1.Controls.Add(label7);
+            panel1.Controls.Add(Subtotal);
+            panel1.Controls.Add(Taxes);
+            panel1.Controls.Add(LabelService);
+            panel1.Controls.Add(Service);
+            panel1.Controls.Add(ExitButton);
+            panel1.Controls.Add(panel2);
+            panel1.Controls.Add(ResetButton);
+            panel1.Controls.Add(ReceiptButton);
+            panel1.Location = new Point(0, 536);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(984, 125);
+            panel1.TabIndex = 0;
             // 
             // CheckBoxService
             // 
-            this.CheckBoxService.AutoSize = true;
-            this.CheckBoxService.Location = new System.Drawing.Point(671, 97);
-            this.CheckBoxService.Name = "CheckBoxService";
-            this.CheckBoxService.Size = new System.Drawing.Size(15, 14);
-            this.CheckBoxService.TabIndex = 1;
-            this.CheckBoxService.UseVisualStyleBackColor = true;
-            this.CheckBoxService.CheckedChanged += new System.EventHandler(this.CheckBoxService_CheckedChanged);
+            CheckBoxService.AutoSize = true;
+            CheckBoxService.Location = new Point(669, 98);
+            CheckBoxService.Name = "CheckBoxService";
+            CheckBoxService.Size = new Size(15, 14);
+            CheckBoxService.TabIndex = 1;
+            CheckBoxService.UseVisualStyleBackColor = true;
+            CheckBoxService.CheckedChanged += CheckBoxService_CheckedChanged;
             // 
             // LabelTaxes
             // 
-            this.LabelTaxes.AutoSize = true;
-            this.LabelTaxes.Font = new System.Drawing.Font("Montserrat Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LabelTaxes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(142)))), ((int)(((byte)(112)))));
-            this.LabelTaxes.Location = new System.Drawing.Point(666, 52);
-            this.LabelTaxes.Name = "LabelTaxes";
-            this.LabelTaxes.Size = new System.Drawing.Size(61, 22);
-            this.LabelTaxes.TabIndex = 32;
-            this.LabelTaxes.Text = "Taxes";
+            LabelTaxes.AutoSize = true;
+            LabelTaxes.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelTaxes.ForeColor = Color.FromArgb(12, 142, 112);
+            LabelTaxes.Location = new Point(666, 52);
+            LabelTaxes.Name = "LabelTaxes";
+            LabelTaxes.Size = new Size(55, 20);
+            LabelTaxes.TabIndex = 32;
+            LabelTaxes.Text = "Porez";
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Montserrat Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(142)))), ((int)(((byte)(112)))));
-            this.label7.Location = new System.Drawing.Point(666, 13);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(88, 22);
-            this.label7.TabIndex = 31;
-            this.label7.Text = "Subtotal";
+            label7.AutoSize = true;
+            label7.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.ForeColor = Color.FromArgb(12, 142, 112);
+            label7.Location = new Point(666, 15);
+            label7.Name = "label7";
+            label7.Size = new Size(71, 20);
+            label7.TabIndex = 31;
+            label7.Text = "Ukupno";
             // 
             // Subtotal
             // 
-            this.Subtotal.BackColor = System.Drawing.Color.White;
-            this.Subtotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Subtotal.Location = new System.Drawing.Point(767, 10);
-            this.Subtotal.Name = "Subtotal";
-            this.Subtotal.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.Subtotal.Size = new System.Drawing.Size(194, 32);
-            this.Subtotal.TabIndex = 29;
-            this.Subtotal.Text = " ";
-            this.Subtotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Subtotal.Click += new System.EventHandler(this.Subtotal_Click);
+            Subtotal.BackColor = Color.White;
+            Subtotal.BorderStyle = BorderStyle.FixedSingle;
+            Subtotal.Location = new Point(767, 10);
+            Subtotal.Name = "Subtotal";
+            Subtotal.Padding = new Padding(5, 0, 0, 0);
+            Subtotal.Size = new Size(194, 32);
+            Subtotal.TabIndex = 29;
+            Subtotal.Text = " ";
+            Subtotal.TextAlign = ContentAlignment.MiddleLeft;
+            Subtotal.Click += Subtotal_Click;
             // 
             // Taxes
             // 
-            this.Taxes.BackColor = System.Drawing.Color.White;
-            this.Taxes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Taxes.Location = new System.Drawing.Point(767, 49);
-            this.Taxes.Name = "Taxes";
-            this.Taxes.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.Taxes.Size = new System.Drawing.Size(194, 32);
-            this.Taxes.TabIndex = 28;
-            this.Taxes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            Taxes.BackColor = Color.White;
+            Taxes.BorderStyle = BorderStyle.FixedSingle;
+            Taxes.Location = new Point(767, 49);
+            Taxes.Name = "Taxes";
+            Taxes.Padding = new Padding(5, 0, 0, 0);
+            Taxes.Size = new Size(194, 32);
+            Taxes.TabIndex = 28;
+            Taxes.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // LabelService
             // 
-            this.LabelService.AutoSize = true;
-            this.LabelService.Font = new System.Drawing.Font("Montserrat Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LabelService.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(142)))), ((int)(((byte)(112)))));
-            this.LabelService.Location = new System.Drawing.Point(669, 91);
-            this.LabelService.Name = "LabelService";
-            this.LabelService.Size = new System.Drawing.Size(91, 22);
-            this.LabelService.TabIndex = 26;
-            this.LabelService.Text = "   Service";
+            LabelService.AutoSize = true;
+            LabelService.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelService.ForeColor = Color.FromArgb(12, 142, 112);
+            LabelService.Location = new Point(669, 93);
+            LabelService.Name = "LabelService";
+            LabelService.Size = new Size(80, 20);
+            LabelService.TabIndex = 26;
+            LabelService.Text = "   Usluga";
             // 
             // Service
             // 
-            this.Service.BackColor = System.Drawing.Color.White;
-            this.Service.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Service.Location = new System.Drawing.Point(767, 88);
-            this.Service.Name = "Service";
-            this.Service.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.Service.Size = new System.Drawing.Size(194, 32);
-            this.Service.TabIndex = 25;
-            this.Service.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Service.Click += new System.EventHandler(this.LabelService_Click);
+            Service.BackColor = Color.White;
+            Service.BorderStyle = BorderStyle.FixedSingle;
+            Service.Location = new Point(767, 88);
+            Service.Name = "Service";
+            Service.Padding = new Padding(5, 0, 0, 0);
+            Service.Size = new Size(194, 32);
+            Service.TabIndex = 25;
+            Service.TextAlign = ContentAlignment.MiddleLeft;
+            Service.Click += LabelService_Click;
             // 
             // ExitButton
             // 
-            this.ExitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(142)))), ((int)(((byte)(112)))));
-            this.ExitButton.CausesValidation = false;
-            this.ExitButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ExitButton.Font = new System.Drawing.Font("Montserrat", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ExitButton.ForeColor = System.Drawing.Color.White;
-            this.ExitButton.Location = new System.Drawing.Point(458, 13);
-            this.ExitButton.Margin = new System.Windows.Forms.Padding(0);
-            this.ExitButton.Name = "ExitButton";
-            this.ExitButton.Size = new System.Drawing.Size(184, 100);
-            this.ExitButton.TabIndex = 24;
-            this.ExitButton.TabStop = false;
-            this.ExitButton.Text = "Exit";
-            this.ExitButton.UseVisualStyleBackColor = false;
-            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
+            ExitButton.BackColor = Color.FromArgb(12, 142, 112);
+            ExitButton.CausesValidation = false;
+            ExitButton.Cursor = Cursors.Hand;
+            ExitButton.FlatStyle = FlatStyle.Popup;
+            ExitButton.Font = new Font("Microsoft Sans Serif", 12.75F, FontStyle.Regular, GraphicsUnit.Point);
+            ExitButton.ForeColor = Color.White;
+            ExitButton.Location = new Point(458, 13);
+            ExitButton.Margin = new Padding(0);
+            ExitButton.Name = "ExitButton";
+            ExitButton.Size = new Size(184, 100);
+            ExitButton.TabIndex = 24;
+            ExitButton.TabStop = false;
+            ExitButton.Text = "Izlaz";
+            ExitButton.UseVisualStyleBackColor = false;
+            ExitButton.Click += ExitButton_Click;
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(142)))), ((int)(((byte)(112)))));
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.LabelTotalString);
-            this.panel2.Controls.Add(this.LabelTotal);
-            this.panel2.Font = new System.Drawing.Font("Montserrat", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.panel2.Location = new System.Drawing.Point(28, 13);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(208, 100);
-            this.panel2.TabIndex = 20;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            panel2.BackColor = Color.FromArgb(12, 142, 112);
+            panel2.BackgroundImageLayout = ImageLayout.None;
+            panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(LabelTotalString);
+            panel2.Controls.Add(LabelTotal);
+            panel2.Font = new Font("Microsoft Sans Serif", 12.75F, FontStyle.Regular, GraphicsUnit.Point);
+            panel2.Location = new Point(28, 13);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(208, 100);
+            panel2.TabIndex = 20;
+            panel2.Paint += panel2_Paint;
             // 
             // LabelTotalString
             // 
-            this.LabelTotalString.BackColor = System.Drawing.Color.White;
-            this.LabelTotalString.Font = new System.Drawing.Font("Montserrat Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LabelTotalString.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(142)))), ((int)(((byte)(112)))));
-            this.LabelTotalString.Location = new System.Drawing.Point(0, 74);
-            this.LabelTotalString.Name = "LabelTotalString";
-            this.LabelTotalString.Size = new System.Drawing.Size(208, 25);
-            this.LabelTotalString.TabIndex = 20;
-            this.LabelTotalString.Text = "Total";
-            this.LabelTotalString.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            LabelTotalString.BackColor = Color.White;
+            LabelTotalString.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelTotalString.ForeColor = Color.FromArgb(12, 142, 112);
+            LabelTotalString.Location = new Point(0, 74);
+            LabelTotalString.Name = "LabelTotalString";
+            LabelTotalString.Size = new Size(208, 25);
+            LabelTotalString.TabIndex = 20;
+            LabelTotalString.Text = "UKUPNO";
+            LabelTotalString.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // LabelTotal
             // 
-            this.LabelTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.LabelTotal.AutoSize = true;
-            this.LabelTotal.Font = new System.Drawing.Font("Montserrat Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LabelTotal.ForeColor = System.Drawing.Color.White;
-            this.LabelTotal.Location = new System.Drawing.Point(64, 30);
-            this.LabelTotal.Margin = new System.Windows.Forms.Padding(0);
-            this.LabelTotal.Name = "LabelTotal";
-            this.LabelTotal.Size = new System.Drawing.Size(81, 22);
-            this.LabelTotal.TabIndex = 19;
-            this.LabelTotal.Text = "$00000";
-            this.LabelTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.LabelTotal.Click += new System.EventHandler(this.LabelTotal_Click);
+            LabelTotal.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            LabelTotal.AutoSize = true;
+            LabelTotal.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelTotal.ForeColor = Color.White;
+            LabelTotal.Location = new Point(64, 30);
+            LabelTotal.Margin = new Padding(0);
+            LabelTotal.Name = "LabelTotal";
+            LabelTotal.Size = new Size(69, 20);
+            LabelTotal.TabIndex = 19;
+            LabelTotal.Text = "0000.00RSD";
+            LabelTotal.TextAlign = ContentAlignment.MiddleCenter;
+            LabelTotal.Click += LabelTotal_Click;
             // 
             // ResetButton
             // 
-            this.ResetButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(142)))), ((int)(((byte)(112)))));
-            this.ResetButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ResetButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ResetButton.Font = new System.Drawing.Font("Montserrat", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ResetButton.ForeColor = System.Drawing.Color.White;
-            this.ResetButton.Location = new System.Drawing.Point(265, 65);
-            this.ResetButton.Margin = new System.Windows.Forms.Padding(0);
-            this.ResetButton.Name = "ResetButton";
-            this.ResetButton.Size = new System.Drawing.Size(164, 48);
-            this.ResetButton.TabIndex = 16;
-            this.ResetButton.TabStop = false;
-            this.ResetButton.Text = "Reset";
-            this.ResetButton.UseVisualStyleBackColor = false;
-            this.ResetButton.Click += new System.EventHandler(this.ResetButton_Click);
+            ResetButton.BackColor = Color.FromArgb(12, 142, 112);
+            ResetButton.Cursor = Cursors.Hand;
+            ResetButton.FlatStyle = FlatStyle.Popup;
+            ResetButton.Font = new Font("Microsoft Sans Serif", 12.75F, FontStyle.Regular, GraphicsUnit.Point);
+            ResetButton.ForeColor = Color.White;
+            ResetButton.Location = new Point(265, 65);
+            ResetButton.Margin = new Padding(0);
+            ResetButton.Name = "ResetButton";
+            ResetButton.Size = new Size(164, 48);
+            ResetButton.TabIndex = 16;
+            ResetButton.TabStop = false;
+            ResetButton.Text = "Resetuj";
+            ResetButton.UseVisualStyleBackColor = false;
+            ResetButton.Click += ResetButton_Click;
             // 
             // ReceiptButton
             // 
-            this.ReceiptButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(142)))), ((int)(((byte)(112)))));
-            this.ReceiptButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ReceiptButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ReceiptButton.Font = new System.Drawing.Font("Montserrat", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ReceiptButton.ForeColor = System.Drawing.Color.White;
-            this.ReceiptButton.Location = new System.Drawing.Point(265, 13);
-            this.ReceiptButton.Margin = new System.Windows.Forms.Padding(0);
-            this.ReceiptButton.Name = "ReceiptButton";
-            this.ReceiptButton.Size = new System.Drawing.Size(164, 48);
-            this.ReceiptButton.TabIndex = 15;
-            this.ReceiptButton.TabStop = false;
-            this.ReceiptButton.Text = "Receipt";
-            this.ReceiptButton.UseVisualStyleBackColor = false;
-            this.ReceiptButton.Click += new System.EventHandler(this.ReceiptButton_Click);
+            ReceiptButton.BackColor = Color.FromArgb(12, 142, 112);
+            ReceiptButton.Cursor = Cursors.Hand;
+            ReceiptButton.FlatStyle = FlatStyle.Popup;
+            ReceiptButton.Font = new Font("Microsoft Sans Serif", 12.75F, FontStyle.Regular, GraphicsUnit.Point);
+            ReceiptButton.ForeColor = Color.White;
+            ReceiptButton.Location = new Point(265, 13);
+            ReceiptButton.Margin = new Padding(0);
+            ReceiptButton.Name = "ReceiptButton";
+            ReceiptButton.Size = new Size(164, 48);
+            ReceiptButton.TabIndex = 15;
+            ReceiptButton.TabStop = false;
+            ReceiptButton.Text = "Račun";
+            ReceiptButton.UseVisualStyleBackColor = false;
+            ReceiptButton.Click += ReceiptButton_Click;
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.panel4.CausesValidation = false;
-            this.panel4.Controls.Add(this.ToolStrip);
-            this.panel4.Controls.Add(this.ReceiptTextBox);
-            this.panel4.Location = new System.Drawing.Point(666, -1);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(318, 537);
-            this.panel4.TabIndex = 2;
+            panel4.BackColor = Color.FromArgb(219, 219, 219);
+            panel4.CausesValidation = false;
+            panel4.Controls.Add(ToolStrip);
+            panel4.Controls.Add(ReceiptTextBox);
+            panel4.Location = new Point(666, -1);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(318, 537);
+            panel4.TabIndex = 2;
             // 
             // ToolStrip
             // 
-            this.ToolStrip.AutoSize = false;
-            this.ToolStrip.BackColor = System.Drawing.SystemColors.Control;
-            this.ToolStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.ToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.ToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStripCopyButton,
-            this.ToolStripCutButton,
-            this.toolStripSaveButton,
-            this.toolStripPrintButton});
-            this.ToolStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.ToolStrip.Location = new System.Drawing.Point(0, 1);
-            this.ToolStrip.Margin = new System.Windows.Forms.Padding(3);
-            this.ToolStrip.Name = "ToolStrip";
-            this.ToolStrip.Size = new System.Drawing.Size(318, 46);
-            this.ToolStrip.TabIndex = 6;
-            this.ToolStrip.Text = "toolStrip1";
+            ToolStrip.AutoSize = false;
+            ToolStrip.BackColor = SystemColors.Control;
+            ToolStrip.Dock = DockStyle.None;
+            ToolStrip.GripStyle = ToolStripGripStyle.Hidden;
+            ToolStrip.Items.AddRange(new ToolStripItem[] { ToolStripCopyButton, ToolStripCutButton, toolStripSaveButton, toolStripPrintButton });
+            ToolStrip.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            ToolStrip.Location = new Point(0, 1);
+            ToolStrip.Margin = new Padding(3);
+            ToolStrip.Name = "ToolStrip";
+            ToolStrip.Size = new Size(318, 46);
+            ToolStrip.TabIndex = 6;
+            ToolStrip.Text = "toolStrip1";
             // 
             // ToolStripCopyButton
             // 
-            this.ToolStripCopyButton.AutoSize = false;
-            this.ToolStripCopyButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ToolStripCopyButton.Image = ((System.Drawing.Image)(resources.GetObject("ToolStripCopyButton.Image")));
-            this.ToolStripCopyButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.ToolStripCopyButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ToolStripCopyButton.Margin = new System.Windows.Forms.Padding(68, 1, 0, 2);
-            this.ToolStripCopyButton.Name = "ToolStripCopyButton";
-            this.ToolStripCopyButton.Size = new System.Drawing.Size(33, 33);
-            this.ToolStripCopyButton.Text = "toolStripButton1";
-            this.ToolStripCopyButton.ToolTipText = "Copy";
-            this.ToolStripCopyButton.Click += new System.EventHandler(this.ToolStripCopyButton_Click);
+            ToolStripCopyButton.AutoSize = false;
+            ToolStripCopyButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            ToolStripCopyButton.Image = (Image)resources.GetObject("ToolStripCopyButton.Image");
+            ToolStripCopyButton.ImageScaling = ToolStripItemImageScaling.None;
+            ToolStripCopyButton.ImageTransparentColor = Color.Magenta;
+            ToolStripCopyButton.Margin = new Padding(68, 1, 0, 2);
+            ToolStripCopyButton.Name = "ToolStripCopyButton";
+            ToolStripCopyButton.Size = new Size(33, 33);
+            ToolStripCopyButton.Text = "toolStripButton1";
+            ToolStripCopyButton.ToolTipText = "Copy";
+            ToolStripCopyButton.Click += ToolStripCopyButton_Click;
             // 
             // ToolStripCutButton
             // 
-            this.ToolStripCutButton.AutoSize = false;
-            this.ToolStripCutButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ToolStripCutButton.Image = ((System.Drawing.Image)(resources.GetObject("ToolStripCutButton.Image")));
-            this.ToolStripCutButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.ToolStripCutButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ToolStripCutButton.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
-            this.ToolStripCutButton.Name = "ToolStripCutButton";
-            this.ToolStripCutButton.Size = new System.Drawing.Size(33, 33);
-            this.ToolStripCutButton.Text = "toolStripButton1";
-            this.ToolStripCutButton.ToolTipText = "Cut";
-            this.ToolStripCutButton.Click += new System.EventHandler(this.ToolStripCutButton_Click);
+            ToolStripCutButton.AutoSize = false;
+            ToolStripCutButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            ToolStripCutButton.Image = (Image)resources.GetObject("ToolStripCutButton.Image");
+            ToolStripCutButton.ImageScaling = ToolStripItemImageScaling.None;
+            ToolStripCutButton.ImageTransparentColor = Color.Magenta;
+            ToolStripCutButton.Margin = new Padding(10, 1, 0, 2);
+            ToolStripCutButton.Name = "ToolStripCutButton";
+            ToolStripCutButton.Size = new Size(33, 33);
+            ToolStripCutButton.Text = "toolStripButton1";
+            ToolStripCutButton.ToolTipText = "Cut";
+            ToolStripCutButton.Click += ToolStripCutButton_Click;
             // 
             // toolStripSaveButton
             // 
-            this.toolStripSaveButton.AutoSize = false;
-            this.toolStripSaveButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSaveButton.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSaveButton.Image")));
-            this.toolStripSaveButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripSaveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSaveButton.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
-            this.toolStripSaveButton.Name = "toolStripSaveButton";
-            this.toolStripSaveButton.Size = new System.Drawing.Size(33, 33);
-            this.toolStripSaveButton.Text = "toolStripButton2";
-            this.toolStripSaveButton.ToolTipText = "Save";
-            this.toolStripSaveButton.Click += new System.EventHandler(this.toolStripSaveButton_Click);
+            toolStripSaveButton.AutoSize = false;
+            toolStripSaveButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripSaveButton.Image = (Image)resources.GetObject("toolStripSaveButton.Image");
+            toolStripSaveButton.ImageScaling = ToolStripItemImageScaling.None;
+            toolStripSaveButton.ImageTransparentColor = Color.Magenta;
+            toolStripSaveButton.Margin = new Padding(10, 1, 0, 2);
+            toolStripSaveButton.Name = "toolStripSaveButton";
+            toolStripSaveButton.Size = new Size(33, 33);
+            toolStripSaveButton.Text = "toolStripButton2";
+            toolStripSaveButton.ToolTipText = "Save";
+            toolStripSaveButton.Click += toolStripSaveButton_Click;
             // 
             // toolStripPrintButton
             // 
-            this.toolStripPrintButton.AutoSize = false;
-            this.toolStripPrintButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripPrintButton.Image = ((System.Drawing.Image)(resources.GetObject("toolStripPrintButton.Image")));
-            this.toolStripPrintButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripPrintButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripPrintButton.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
-            this.toolStripPrintButton.Name = "toolStripPrintButton";
-            this.toolStripPrintButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.toolStripPrintButton.Size = new System.Drawing.Size(33, 33);
-            this.toolStripPrintButton.Text = "toolStripButton1";
-            this.toolStripPrintButton.ToolTipText = "Print";
-            this.toolStripPrintButton.Click += new System.EventHandler(this.toolStripPrintButton_Click);
+            toolStripPrintButton.AutoSize = false;
+            toolStripPrintButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripPrintButton.Image = (Image)resources.GetObject("toolStripPrintButton.Image");
+            toolStripPrintButton.ImageScaling = ToolStripItemImageScaling.None;
+            toolStripPrintButton.ImageTransparentColor = Color.Magenta;
+            toolStripPrintButton.Margin = new Padding(10, 1, 0, 2);
+            toolStripPrintButton.Name = "toolStripPrintButton";
+            toolStripPrintButton.Padding = new Padding(10, 0, 0, 0);
+            toolStripPrintButton.Size = new Size(33, 33);
+            toolStripPrintButton.Text = "toolStripButton1";
+            toolStripPrintButton.ToolTipText = "Print";
+            toolStripPrintButton.Click += toolStripPrintButton_Click;
             // 
             // ReceiptTextBox
             // 
-            this.ReceiptTextBox.AccessibleDescription = "Copy";
-            this.ReceiptTextBox.AccessibleName = "Copy";
-            this.ReceiptTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ReceiptTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.ReceiptTextBox.Location = new System.Drawing.Point(0, 47);
-            this.ReceiptTextBox.Margin = new System.Windows.Forms.Padding(0);
-            this.ReceiptTextBox.Name = "ReceiptTextBox";
-            this.ReceiptTextBox.Size = new System.Drawing.Size(318, 492);
-            this.ReceiptTextBox.TabIndex = 0;
-            this.ReceiptTextBox.Text = "";
-            this.ReceiptTextBox.TextChanged += new System.EventHandler(this.ReceiptTextBox_TextChanged);
+            ReceiptTextBox.AccessibleDescription = "Copy";
+            ReceiptTextBox.AccessibleName = "Copy";
+            ReceiptTextBox.BorderStyle = BorderStyle.FixedSingle;
+            ReceiptTextBox.Cursor = Cursors.IBeam;
+            ReceiptTextBox.Location = new Point(0, 47);
+            ReceiptTextBox.Margin = new Padding(0);
+            ReceiptTextBox.Name = "ReceiptTextBox";
+            ReceiptTextBox.Size = new Size(318, 492);
+            ReceiptTextBox.TabIndex = 0;
+            ReceiptTextBox.Text = "";
+            ReceiptTextBox.TextChanged += ReceiptTextBox_TextChanged;
+            // 
+            // LabelRestaurantName
+            // 
+            LabelRestaurantName.Location = new Point(0, 0);
+            LabelRestaurantName.Name = "LabelRestaurantName";
+            LabelRestaurantName.Size = new Size(100, 23);
+            LabelRestaurantName.TabIndex = 0;
             // 
             // UsersControl
             // 
-            this.UsersControl.Name = "UsersControl";
-            this.UsersControl.Size = new System.Drawing.Size(32, 19);
+            UsersControl.Name = "UsersControl";
+            UsersControl.Size = new Size(32, 19);
             // 
             // UsersControlView
             // 
-            this.UsersControlView.Name = "UsersControlView";
-            this.UsersControlView.Size = new System.Drawing.Size(32, 19);
+            UsersControlView.Name = "UsersControlView";
+            UsersControlView.Size = new Size(32, 19);
             // 
             // RegisterControls
             // 
-            this.RegisterControls.Name = "RegisterControls";
-            this.RegisterControls.Size = new System.Drawing.Size(32, 19);
+            RegisterControls.Name = "RegisterControls";
+            RegisterControls.Size = new Size(32, 19);
             // 
             // RegisterControlsClose
             // 
-            this.RegisterControlsClose.Name = "RegisterControlsClose";
-            this.RegisterControlsClose.Size = new System.Drawing.Size(32, 19);
+            RegisterControlsClose.Name = "RegisterControlsClose";
+            RegisterControlsClose.Size = new Size(32, 19);
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.SystemColors.Control;
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.controlsToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(984, 24);
-            this.menuStrip1.TabIndex = 50;
-            this.menuStrip1.Text = "menuStrip1";
+            menuStrip1.BackColor = SystemColors.Control;
+            menuStrip1.Items.AddRange(new ToolStripItem[] { controlsToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(984, 24);
+            menuStrip1.TabIndex = 50;
+            menuStrip1.Text = "menuStrip1";
             // 
             // controlsToolStripMenuItem
             // 
-            this.controlsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.usersToolStripMenuItem,
-            this.registersToolStripMenuItem});
-            this.controlsToolStripMenuItem.Name = "controlsToolStripMenuItem";
-            this.controlsToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
-            this.controlsToolStripMenuItem.Text = "Controls";
+            controlsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { usersToolStripMenuItem, registersToolStripMenuItem });
+            controlsToolStripMenuItem.Name = "controlsToolStripMenuItem";
+            controlsToolStripMenuItem.Size = new Size(64, 20);
+            controlsToolStripMenuItem.Text = "Controls";
             // 
             // usersToolStripMenuItem
             // 
-            this.usersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewToolStripMenuItem});
-            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
-            this.usersToolStripMenuItem.Text = "Users";
+            usersToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { viewToolStripMenuItem });
+            usersToolStripMenuItem.Name = "usersToolStripMenuItem";
+            usersToolStripMenuItem.Size = new Size(180, 22);
+            usersToolStripMenuItem.Text = "Korisnici";
             // 
             // viewToolStripMenuItem
             // 
-            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
-            this.viewToolStripMenuItem.Text = "View";
-            this.viewToolStripMenuItem.Click += new System.EventHandler(this.viewToolStripMenuItem_Click);
+            viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            viewToolStripMenuItem.Size = new Size(180, 22);
+            viewToolStripMenuItem.Text = "Pregled";
+            viewToolStripMenuItem.Click += viewToolStripMenuItem_Click;
             // 
             // registersToolStripMenuItem
             // 
-            this.registersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.closeCashRegisterToolStripMenuItem});
-            this.registersToolStripMenuItem.Name = "registersToolStripMenuItem";
-            this.registersToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
-            this.registersToolStripMenuItem.Text = "Registers";
+            registersToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { closeCashRegisterToolStripMenuItem });
+            registersToolStripMenuItem.Name = "registersToolStripMenuItem";
+            registersToolStripMenuItem.Size = new Size(180, 22);
+            registersToolStripMenuItem.Text = "Registri";
             // 
             // closeCashRegisterToolStripMenuItem
             // 
-            this.closeCashRegisterToolStripMenuItem.Name = "closeCashRegisterToolStripMenuItem";
-            this.closeCashRegisterToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-            this.closeCashRegisterToolStripMenuItem.Text = "Close Cash Register";
-            this.closeCashRegisterToolStripMenuItem.Click += new System.EventHandler(this.closeCashRegisterToolStripMenuItem_Click);
+            closeCashRegisterToolStripMenuItem.Name = "closeCashRegisterToolStripMenuItem";
+            closeCashRegisterToolStripMenuItem.Size = new Size(193, 22);
+            closeCashRegisterToolStripMenuItem.Text = "Sačuvaj kasu u registar";
+            closeCashRegisterToolStripMenuItem.Click += closeCashRegisterToolStripMenuItem_Click;
             // 
             // printPreviewDialog1
             // 
-            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog1.Document = this.printDocument1;
-            this.printPreviewDialog1.Enabled = true;
-            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
-            this.printPreviewDialog1.Name = "printPreviewDialog1";
-            this.printPreviewDialog1.Visible = false;
+            printPreviewDialog1.AutoScrollMargin = new Size(0, 0);
+            printPreviewDialog1.AutoScrollMinSize = new Size(0, 0);
+            printPreviewDialog1.ClientSize = new Size(400, 300);
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.Enabled = true;
+            printPreviewDialog1.Icon = (Icon)resources.GetObject("printPreviewDialog1.Icon");
+            printPreviewDialog1.Name = "printPreviewDialog1";
+            printPreviewDialog1.Visible = false;
             // 
             // printDocument1
             // 
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            printDocument1.PrintPage += printDocument1_PrintPage;
             // 
             // PrincipalScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(249)))), ((int)(((byte)(244)))));
-            this.ClientSize = new System.Drawing.Size(984, 661);
-            this.ControlBox = false;
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.menuStrip1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
-            this.MaximumSize = new System.Drawing.Size(1000, 700);
-            this.MinimumSize = new System.Drawing.Size(1000, 700);
-            this.Name = "PrincipalScreen";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Billing System";
-            this.Load += new System.EventHandler(this.PrincipalScreen_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.ToolStrip.ResumeLayout(false);
-            this.ToolStrip.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
-            this.LoadItems();
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(255, 249, 244);
+            ClientSize = new Size(984, 661);
+            ControlBox = false;
+            Controls.Add(panel4);
+            Controls.Add(panel1);
+            Controls.Add(menuStrip1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MainMenuStrip = menuStrip1;
+            MaximumSize = new Size(1000, 700);
+            MinimumSize = new Size(1000, 700);
+            Name = "PrincipalScreen";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Kasa";
+            Load += PrincipalScreen_Load;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            panel4.ResumeLayout(false);
+            ToolStrip.ResumeLayout(false);
+            ToolStrip.PerformLayout();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
+            
+            LoadItems();
         }
 
         private Dictionary<int, (CheckBox, NumericUpDown)> checkBoxCounterMapping = new Dictionary<int, (CheckBox, NumericUpDown)>();

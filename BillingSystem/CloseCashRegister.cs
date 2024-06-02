@@ -19,7 +19,7 @@ namespace BillingSystem
 
             if (receipts == null || receipts.Count == 0)
             {
-                MessageBox.Show("No receipts found.");
+                MessageBox.Show("Lista računa je prazna.");
                 return;
             }
 
@@ -36,7 +36,7 @@ namespace BillingSystem
 
             // Add columns dynamically
             lvwCerrar.Columns.Add("ID", 100);
-            lvwCerrar.Columns.Add("User", 100);
+            lvwCerrar.Columns.Add("Korisnik", 100);
             foreach (var itemName in itemNames)
             {
                 lvwCerrar.Columns.Add(itemName, 100);
@@ -45,7 +45,7 @@ namespace BillingSystem
             // Add rows
             foreach (var receipt in receipts)
             {
-                ListViewItem listViewItem = new ListViewItem(receipt.Id.ToString());
+                ListViewItem listViewItem = new(receipt.Id.ToString());
                 listViewItem.SubItems.Add(receipt.User.Username);
 
                 foreach (var itemName in itemNames)
@@ -89,15 +89,22 @@ namespace BillingSystem
                     // Create the directory if it doesn't exist
                     Directory.CreateDirectory(registersDirectory);
 
-                    string fileName = $"caja_{DateTime.Now.ToString("dd.mm.yyyy_HH.mm.ss")}.txt";
+                    string fileName = $"registar-kase_{DateTime.Now.ToString("dd-MM-yyyy_HH.mm.ss")}.txt";
                     string filePath = Path.Combine(registersDirectory, fileName);
 
                     using (StreamWriter sw = new StreamWriter(filePath))
                     {
-                        sw.Write("Today were sold:" + Environment.NewLine);
+                        sw.Write("Danas smo prodali:" + Environment.NewLine);
                         foreach (ColumnHeader column in lvwCerrar.Columns)
                         {
-                            sw.Write(column.Text + "\t");
+                            if (column.Text.Length >= 8)
+                            {
+                                sw.Write(column.Text + "\t");
+                            }
+                            else
+                            {
+                                sw.Write(column.Text + "\t\t");
+                            }
                         }
                         sw.WriteLine();
 
@@ -105,7 +112,14 @@ namespace BillingSystem
                         {
                             foreach (ListViewItem.ListViewSubItem subItem in item.SubItems)
                             {
-                                sw.Write(subItem.Text + "\t");
+                                if (subItem.Text.Length >= 8)
+                                {
+                                    sw.Write(subItem.Text + "\t");
+                                }
+                                else
+                                {
+                                    sw.Write(subItem.Text + "\t\t");
+                                }
                             }
                             sw.WriteLine();
                         }
@@ -114,11 +128,12 @@ namespace BillingSystem
                         double totalItems = receipts.Sum(r => r.ItemReceipts.Sum(ir => ir.Quantity));
                         decimal totalSold = receipts.Sum(r => r.ItemReceipts.Sum(ir => ir.Quantity * ir.Item.Price));
 
-                        sw.WriteLine($"Total items sold: {totalItems}" + Environment.NewLine);
-                        sw.WriteLine($"Total money earned: ${totalSold}" + Environment.NewLine);
+                        sw.WriteLine(Environment.NewLine);
+                        sw.WriteLine($"Ukupno prodatih artikala: {totalItems}" + Environment.NewLine);
+                        sw.WriteLine($"Ukupno novca zarađeno: {totalSold}RSD" + Environment.NewLine);
                     }
 
-                    MessageBox.Show("Register recorded.");
+                    MessageBox.Show("Sačuvani računi u registru.");
 
                     db.Receipts_Delete();
 
@@ -126,7 +141,7 @@ namespace BillingSystem
                 }
                 else
                 {
-                    MessageBox.Show("Empty list.");
+                    MessageBox.Show("Lista računa je prazna.");
                 }
             }
             catch (Exception ex)

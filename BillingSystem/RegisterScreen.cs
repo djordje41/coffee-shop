@@ -23,15 +23,15 @@
 
             if (username.Length < 3)
             {
-                MessageBox.Show("The username is too short. Try another.");
+                MessageBox.Show("Korisničko ime mora imati barem 3 karaktera.");
             }
             else if (password.Length < 3)
             {
-                MessageBox.Show("The password is too short. Try another.");
+                MessageBox.Show("Lozinka mora imati barem 3 karaktera.");
             }
             else if (this.databaseConnector.User_Exists(username) || username == AdminCredentials.Username)
             {
-                MessageBox.Show("That username is taken. Try another.");
+                MessageBox.Show("Korisnično ime je zauzeto.");
             }
             else if (username.Length >= 3 && password.Length >= 3)
             {
@@ -39,7 +39,7 @@
 
                 if (userCreated)
                 {
-                    MessageBox.Show("User registered successfully.");
+                    MessageBox.Show("Korisnik uspešno registrovan!");
 
                     LoginScreen loginscreen = new();
                     loginscreen.Show();
@@ -47,12 +47,12 @@
                 } 
                 else
                 {
-                    MessageBox.Show("Failed to register the user.");
+                    MessageBox.Show("Neuspešna registracija korisnika. Prijavite problem tehničkoj podršci.");
                 }
             }
             else
             {
-                MessageBox.Show("Something went wrong. Try again.");
+                MessageBox.Show("Desila se greška. Prijavite problem tehničkoj podršci.");
             }
         }
 
