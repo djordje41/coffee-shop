@@ -187,7 +187,7 @@
 
                 /*------------------------------- TAX -----------------------------------*/
                 ReceiptTextBox.AppendText("====================================" + Environment.NewLine);
-                ReceiptTextBox.AppendText("\t\t      " + "POREZ" + Environment.NewLine);
+                ReceiptTextBox.AppendText("\t\t         " + "POREZ" + Environment.NewLine);
                 ReceiptTextBox.AppendText("====================================" + Environment.NewLine);
                 ReceiptTextBox.AppendText($"\tOSNOVA\t\t{subtotal:F2}" + Environment.NewLine);
                 ReceiptTextBox.AppendText($"\tPOREZ\t\t\t8%" + Environment.NewLine);
@@ -212,6 +212,9 @@
                 }
 
                 ReceiptTextBox.AppendText("====================================" + Environment.NewLine);
+
+                ReceiptTextBox.AppendText("\t\t     POSETITE NAS" + Environment.NewLine);
+                ReceiptTextBox.AppendText("\t         www.coffeeshopdada.com" + Environment.NewLine);
             }
             catch (Exception ex)
             {
@@ -305,12 +308,14 @@
             SaveFileDialog saveFile = new SaveFileDialog();
 
             saveFile.FileName = "Receipt";
-            saveFile.Filter = "Text Files (*.txt)|*.txt|All files (*.*)|*.*";
+            saveFile.Filter = "Rich Text Format (*.rtf)|*.rtf|All files (*.*)|*.*";
 
             if (saveFile.ShowDialog() == DialogResult.OK)
             {
                 using (StreamWriter sw = new StreamWriter(saveFile.FileName))
-                    sw.WriteLine(ReceiptTextBox.Text);
+                {
+                    ReceiptTextBox.SaveFile(sw.BaseStream, RichTextBoxStreamType.RichText);
+                }
             }
         }
     }

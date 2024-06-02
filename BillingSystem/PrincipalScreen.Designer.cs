@@ -226,7 +226,7 @@ namespace BillingSystem
             LabelTotal.Location = new Point(64, 30);
             LabelTotal.Margin = new Padding(0);
             LabelTotal.Name = "LabelTotal";
-            LabelTotal.Size = new Size(69, 20);
+            LabelTotal.Size = new Size(112, 20);
             LabelTotal.TabIndex = 19;
             LabelTotal.Text = "0000.00RSD";
             LabelTotal.TextAlign = ContentAlignment.MiddleCenter;
@@ -404,8 +404,8 @@ namespace BillingSystem
             // 
             controlsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { usersToolStripMenuItem, registersToolStripMenuItem });
             controlsToolStripMenuItem.Name = "controlsToolStripMenuItem";
-            controlsToolStripMenuItem.Size = new Size(64, 20);
-            controlsToolStripMenuItem.Text = "Controls";
+            controlsToolStripMenuItem.Size = new Size(53, 20);
+            controlsToolStripMenuItem.Text = "Opcije";
             // 
             // usersToolStripMenuItem
             // 
